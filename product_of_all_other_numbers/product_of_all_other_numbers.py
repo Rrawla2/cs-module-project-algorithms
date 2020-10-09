@@ -4,9 +4,19 @@ Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
     # Your code here
+    # This is the base case
+    products = [0 for _ in range(len(arr))]
+    products_so_far = 1
+    # For each integer, we find the product of all the integers
+    # before it, storing the total product so far each time
+    for item in arr:
+        products_so_far *= item  # this updates products_so_far to a new value
 
-    pass
+    for item in range(len(arr)):
+        products[item] = products_so_far // arr[item]  # products[item] is the first index
+        # we are assigning the first index to the value of products_so_far divided by each item in the array
 
+    return products
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
