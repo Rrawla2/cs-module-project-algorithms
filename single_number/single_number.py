@@ -4,8 +4,18 @@ Returns: an integer
 '''
 def single_number(arr):
     # Your code here
+    # Outer loop keeps track of the count for each number
+    for i in range(len(arr)):
+        count = 0
+        # Inner loop adds to the count for each item
+        for j in range(len(arr)):
+            if arr[i] == arr[j]:
+                count += 1
+        # if the count has a remainder it returns that index
+        if count % 2 != 0:
+            return arr[i]
 
-    pass
+    return -1
 
 
 if __name__ == '__main__':
